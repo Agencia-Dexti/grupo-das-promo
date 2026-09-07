@@ -1,0 +1,549 @@
+/* ===== Variáveis de marca ===== */
+:root {
+  --cor-fundo: #f4ede1;
+  --cor-papel: #fffaf2;
+  --cor-borda-papel: #d8c9ae;
+  --cor-tinta: #241f1a;
+  --cor-tinta-suave: #6b5f4f;
+  --cor-vermelha: #ca2b16;
+  --cor-mostarda: #b46a25;
+  --cor-verde-oliva: #288f55;
+  --cor-laranja: #f36716;
+  --cor-azul: #1c699c;
+  --cor-roxo: #9e2cbb;
+  --cor-placeholder-logo: #e5dccb;
+  --cor-borda-placeholder: #c9bba0;
+  --fonte-principal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* ===== Animação das seções no scroll ===== */
+
+.animar-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1.2s ease;
+}
+
+.animar-scroll.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-tinta);
+  line-height: 1.5;
+}
+
+.pagina {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 32px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.etiqueta-secao {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-tinta-suave);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.etiqueta-secao.cor-vermelha {
+  color: var(--cor-vermelha);
+}
+
+/* ===== Cupom principal (hero) ===== */
+.secao-cupom-principal {
+  margin-bottom: 40px;
+  /* Estado inicial da seção */
+  opacity: 0;
+  transform: translateY(-40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* Quando a seção entra na tela */
+.secao-cupom-principal.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cupom {
+  background: var(--cor-papel);
+  border: 2px dashed var(--cor-borda-papel);
+  border-radius: 16px;
+  padding: 26px 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.furo-cupom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--cor-fundo);
+  border-radius: 50%;
+}
+
+.furo-esquerdo {
+  left: -14px;
+}
+
+.furo-direito {
+  right: -14px;
+}
+
+.texto-cupom {
+  flex: 1;
+  min-width: 0;
+}
+
+.titulo-marca {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--cor-tinta);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.destaque-titulo {
+  position: relative;
+  display: inline-block;
+
+  background: linear-gradient(
+    180deg,
+    #ffd930,
+    #ec7a10
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  overflow: hidden;
+
+  animation: destaqueOfertas 3.5s ease-in-out infinite;
+}
+
+.destaque-titulo::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -100%;
+  width: 45%;
+  height: 140%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: brilhoOfertas 3s ease-in-out infinite;
+}
+
+@keyframes brilhoOfertas {
+  0% {
+    left: -80%;
+  }
+
+  35% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+.destaque-titulo-azul {
+  /* Define o degradê como fundo */
+  background: linear-gradient(180deg, #57e6ff, var(--cor-azul) );
+  
+  /* Recorta o fundo apenas para a área do texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Deixa o texto transparente para o fundo aparecer */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.slogan-marca {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cor-tinta-suave);
+  margin-top: 12px;
+  max-width: 360px;
+}
+
+.logo-marca {
+  width: 250px;
+  height: 250px;
+  min-width: 110px;
+  border-radius: 50%;
+  border: 2px dashed var(--cor-borda-placeholder);
+  background: var(--cor-placeholder-logo);
+  object-fit: cover;
+}
+
+/* ===== Categorias ===== */
+.secao-categorias {
+  margin-bottom: 44px;
+  scroll-margin-top: 25px;
+}
+
+.grade-categorias {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.etiqueta-categoria {
+  border-radius: 10px;
+  padding: 16px 14px;
+  display: block;
+  text-decoration: none;
+
+  position: relative;
+  overflow: hidden;
+
+  /* Transição suave */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.etiqueta-categoria:hover {
+  transform: scale(1.03);
+
+  filter: brightness(1.1);
+
+  box-shadow:
+    0 8px 12px rgba(0, 0, 0, 0.342);
+}
+
+.nome-categoria {
+  font-size: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.linha-corte-categoria {
+  border-top: 1.5px dashed;
+  padding-top: 8px;
+}
+
+.texto-entrar-categoria {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Cores por categoria (texto claro sobre fundo escuro, exceto na mostarda) */
+.etiqueta-categoria.cor-mostarda {
+  background: var(--cor-mostarda);
+}
+.etiqueta-categoria.cor-mostarda .nome-categoria,
+.etiqueta-categoria.cor-mostarda .texto-entrar-categoria {
+  color: #fff;
+}
+.etiqueta-categoria.cor-mostarda .linha-corte-categoria {
+  border-color: rgba(36, 31, 26, 0.35);
+}
+
+.etiqueta-categoria.cor-verde-oliva,
+.etiqueta-categoria.cor-vermelha-cat,
+.etiqueta-categoria.cor-azul,
+.etiqueta-categoria.cor-laranja,
+.etiqueta-categoria.cor-roxo {
+  color: #fff;
+}
+.etiqueta-categoria.cor-verde-oliva .nome-categoria,
+.etiqueta-categoria.cor-verde-oliva .texto-entrar-categoria,
+.etiqueta-categoria.cor-vermelha-cat .nome-categoria,
+.etiqueta-categoria.cor-vermelha-cat .texto-entrar-categoria,
+.etiqueta-categoria.cor-azul .nome-categoria,
+.etiqueta-categoria.cor-azul .texto-entrar-categoria,
+.etiqueta-categoria.cor-laranja .nome-categoria,
+.etiqueta-categoria.cor-laranja .texto-entrar-categoria,
+.etiqueta-categoria.cor-roxo .nome-categoria,
+.etiqueta-categoria.cor-roxo .texto-entrar-categoria {
+  color: #fff;
+}
+.etiqueta-categoria.cor-verde-oliva .linha-corte-categoria,
+.etiqueta-categoria.cor-vermelha-cat .linha-corte-categoria,
+.etiqueta-categoria.cor-azul .linha-corte-categoria,
+.etiqueta-categoria.cor-laranja .linha-corte-categoria,
+.etiqueta-categoria.cor-roxo .linha-corte-categoria {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.etiqueta-categoria.cor-verde-oliva { background: var(--cor-verde-oliva); }
+.etiqueta-categoria.cor-vermelha-cat { background: var(--cor-vermelha); }
+.etiqueta-categoria.cor-azul { background: var(--cor-azul); }
+.etiqueta-categoria.cor-laranja { background: var(--cor-laranja); }
+.etiqueta-categoria.cor-roxo { background: var(--cor-roxo); }
+
+.texto-entrar-categoria {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.texto-entrar-categoria i {
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+/* ===== Regras de resgate ===== */
+.secao-regras {
+  margin-bottom: 36px;
+}
+
+.cartao-regras {
+  background: var(--cor-papel);
+  border: 2px dashed var(--cor-borda-papel);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.linha-regra {
+  font-size: 15px;
+  color: var(--cor-tinta);
+  margin-bottom: 8px;
+}
+
+.linha-regra:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== Selos ===== */
+.secao-selos {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.selo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.selo-vermelho {
+  border-color: var(--cor-verde-oliva);
+  transform: rotate(-8deg);
+}
+
+.selo-vermelho .valor-selo {
+  color: var(--cor-verde-oliva);
+}
+
+.selo-vermelho .rotulo-selo {
+  color: var(--cor-tinta-suave);
+}
+
+.selo-verde {
+  border-color: var(--cor-azul);
+  transform: rotate(6deg);
+}
+
+.selo-verde .valor-selo {
+  color: var(--cor-azul);
+}
+
+.selo-verde .rotulo-selo {
+  color: var(--cor-tinta-suave);
+}
+
+.valor-selo {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.rotulo-selo {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0px;
+}
+
+/* ===== Fechamento ===== */
+.secao-fechamento {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.texto-fechamento {
+  font-size: 16px;
+  color: var(--cor-tinta-suave);
+  margin-bottom: 6px;
+}
+
+.link-fechamento {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-vermelha);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.link-fechamento:hover,
+.link-fechamento:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  text-align: center;
+}
+
+.texto-rodape {
+  font-size: 11px;
+  color: #9a8c78;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+/* ===== Responsivo ===== */
+
+/* Celular: cupom empilha (logo abaixo do texto) */
+@media (max-width: 480px) {
+  .cupom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slogan-marca {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .etiqueta-categoria {
+    transform: none !important;
+  }
+
+  .selo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .valor-selo {
+    font-size: 37px;
+  }
+
+  .rotulo-selo {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .titulo-marca {
+    font-size: 48px;
+  }
+
+  .slogan-marca {
+    font-size: 14px;
+  }
+
+  .logo-marca {
+    width: 230px;
+    height: 230px;
+  }
+
+  .selo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .valor-selo {
+    font-size: 32px;
+  }
+
+  .rotulo-selo {
+    font-size: 11px;
+  }
+
+  .texto-fechamento {
+    font-size: 15px;
+  }
+
+  .link-fechamento {
+    font-size: 12px;
+  }
+
+  .texto-rodape {
+    font-size: 10px;
+  }
+}
+
+/* Tablet: 2 colunas de categoria */
+@media (min-width: 640px) {
+  .grade-categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 colunas de categoria */
+@media (min-width: 900px) {
+  .pagina {
+    max-width: 900px;
+  }
+
+  .grade-categorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Acessibilidade ===== */
+.link-fechamento:focus-visible,
+.etiqueta-categoria:focus-visible {
+  outline: 2px solid var(--cor-vermelha);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

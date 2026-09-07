@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo das Promo — Achados incríveis, preços que cabem no seu bolso</title>
+  <meta name="description" content="Entre nos grupos de WhatsApp do Grupo das Promo e receba as melhores ofertas por categoria, todos os dias.">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="pagina">
+
+    <!-- Cupom principal (hero) -->
+    <header class="secao-cupom-principal animar-scroll">
+      <!--<p class="etiqueta-secao cor-vermelha">Cupom válido hoje</p>-->
+
+      <div class="cupom">
+        <div class="furo-cupom furo-esquerdo"></div>
+        <div class="furo-cupom furo-direito"></div>
+
+        <div class="texto-cupom">
+          <p class="titulo-marca"><span class="destaque-titulo">Ofertas</span>
+            <br>Diárias<br>no <span class="destaque-titulo-azul">Whats</span></p>
+          <p class="slogan-marca">Achados incríveis, preços que cabem no seu bolso.</p>
+        </div>
+
+        <img src="img/Logo.png" alt="Logotipo Grupo das Promo" class="logo-marca">
+      </div>
+    </header>
+
+    <main>
+      <!-- Categorias -->
+      <section class="secao-categorias animar-scroll" id="categorias">
+        <p class="etiqueta-secao">Escolha sua etiqueta</p>
+        <div class="grade-categorias" id="grade-categorias">
+          <!-- As etiquetas de categoria são inseridas aqui via script.js -->
+        </div>
+      </section>
+
+      <!-- Regras de resgate (benefícios) -->
+      <section class="secao-regras animar-scroll">
+        <div class="cartao-regras">
+          <p class="etiqueta-secao cor-vermelha">Vantagens de participar:</p>
+          <p class="linha-regra">— Monitoramento 24h nas lojas.</p>
+          <p class="linha-regra">— Cupons completamente exclusivos.</p>
+          <p class="linha-regra">— Aviso de oferta relâmpago.</p>
+          <p class="linha-regra">— Sem oferta fake, só oferta real.</p>
+        </div>
+      </section>
+
+      <!-- Selos (números da comunidade) -->
+      <section class="secao-selos animar-scroll">
+        <div class="selo selo-vermelho">
+          <p class="valor-selo" id="numeroMembros">+10 mil</p>
+          <p class="rotulo-selo">membros ativos</p>
+        </div>
+        <div class="selo selo-verde">
+          <p class="valor-selo">+100</p>
+          <p class="rotulo-selo">ofertas / dia</p>
+        </div>
+      </section>
+
+      <!-- Fechamento (sem CTA duplicado) -->
+      <section class="secao-fechamento animar-scroll">
+        <p class="texto-fechamento">Ainda não escolheu o seu?</p>
+        <a href="#categorias" class="link-fechamento">↑ role e escolha sua etiqueta aqui em cima</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p class="texto-rodape">*Este grupo envia apenas ofertas e cupons. Você pode sair a qualquer momento.</p>
+      <p class="texto-rodape">© <span id="anoAtual"></span> Grupo das Promo — todos os direitos reservados.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
